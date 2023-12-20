@@ -19,7 +19,7 @@ const userReducer = (state = User, action) => {
         count: state.count + 1,
       };
     default:
-      state;
+      return state;
   }
 };
 //store
