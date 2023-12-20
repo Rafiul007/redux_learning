@@ -14,6 +14,7 @@ const userReducer = (state = User, action) => {
   switch (action.type) {
     case "ADD_USER":
       return {
+        // ...state  === etaa lage nai karon sob gula state niyei kaj kortisi
         user: [...state.user, action.payload],
         count: state.count + 1,
       };
