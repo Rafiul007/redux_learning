@@ -3,7 +3,7 @@ const { createStore } = require("redux");
 //defining constant
 const INCREMENT = "INCREMENT";
 const DECREMENT = "DECREMENT";
-
+const INCREMENT_BY_VALUE = "INCREMENT_BY_VALUE";
 //state
 const initialCounterState = {
   count: 0, //count state initialize korlam
@@ -25,6 +25,12 @@ const setCounterHundred = () => {
     type: "SET_100",
   };
 };
+const incrementCounterByValue = (value) => {
+  return {
+    type: INCREMENT_BY_VALUE,
+    payload: value, //payload data receive korbe. value ta payload er maddhome ekhane receive kora hoise
+  };
+};
 
 //creating reducer
 const counterReducer = (state = initialCounterState, action) => {
@@ -35,6 +41,8 @@ const counterReducer = (state = initialCounterState, action) => {
       return { ...state, count: state.count - 1 };
     case "SET_100":
       return { ...state, count: 100 };
+    case INCREMENT_BY_VALUE:
+        return { ...state, count: state.count + action.payload };
     default:
       state;
   }
@@ -56,3 +64,8 @@ store.dispatch(incrementCounter());
 store.dispatch(decrementCounter());
 store.dispatch(setCounterHundred());
 store.dispatch(decrementCounter());
+
+
+store.dispatch(incrementCounterByValue(5))
+store.dispatch(incrementCounterByValue(2));
+store.dispatch(incrementCounterByValue(500));
