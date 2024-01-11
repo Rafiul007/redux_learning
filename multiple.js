@@ -81,3 +81,5 @@ store.dispatch(addProduct("Tomato"));
 store.dispatch(addProduct("Banana"));
 store.dispatch(getProduct());
 store.dispatch(addToCartItem("Potato"));
+
+//-.-.-.-.-.-.-next middleware-.-.-.-.-.-.-.-
